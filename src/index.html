@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Pete's Pet Shop - 投票系统</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 自定义样式 -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .page-header {
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+        }
+        .page-header h1 {
+            color: #007bff;
+            font-weight: 300;
+        }
+        .table {
+            margin-bottom: 30px;
+            border: 1px solid #e9ecef;
+        }
+        .table thead {
+            background-color: #007bff;
+            color: white;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #e3f2fd;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            font-weight: 500;
+            color: #495057;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .vote-section {
+            padding: 20px;
+            background-color: #f1f8e9;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .results-section h3 {
+            color: #28a745;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .footer-text {
+            margin-top: 30px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Pete's Pet Shop <small>候选人投票系统</small></h1>
+        </div>
+
+        <div class="results-section">
+            <h3>当前投票结果</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">候选人</th>
+                        <th scope="col">得票数</th>
+                    </tr>
+                </thead>
+                <tbody id="candidatesResults">
+                    <!-- 投票结果将在这里动态显示 -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="vote-section">
+            <h3>参与投票</h3>
+            <form onSubmit="App.castVote(); return false;">
+                <div class="form-group">
+                    <label for="candidatesSelect">请选择候选人</label>
+                    <select class="form-control" id="candidatesSelect" style="height: 45px; font-size: 16px;">
+                        <!-- 候选人选项将在这里动态显示 -->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">提交投票</button>
+            </form>
+        </div>
+
+        <div class="footer-text">
+            <p>© 2023 Pete's Pet Shop 投票系统 - 公平公正公开</p>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
